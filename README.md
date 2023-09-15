@@ -1,12 +1,5 @@
-# General-Archive
-# GA-General Archive
+# GA-General Archive - By Team Granular Archivists 📖
 Our blog is a platform designed for GA students to showcase, manage, and share their projects. With user authentication, integrated comments, and personal profiles, each student can provide details about their project, get feedback, and display links to deployment and their GitHub repositories.
-
-
-# Team Name
-Team Granular Archivists
-
-
 
 
 # Technologies Used
@@ -15,6 +8,9 @@ Team Granular Archivists
 - Javascript
 - AWS
 - SQL
+- CSS
+- Materialize
+- HTML
 
 
 # User Stories
@@ -33,7 +29,11 @@ Team Granular Archivists
 - AAU, I want my personal details and projects to be secure, because I want to protect my privacy and intellectual property.
 
 # Wireframes
-
+<img src="https://i.imgur.com/dDBiGpK.png">
+<img src="https://i.imgur.com/ZKTLimW.png">
+<img src="https://i.imgur.com/FhSfL7H.png">
+<img src="https://i.imgur.com/tl0QPK9.png">
+<img src="https://i.imgur.com/GSucYdR.png">
 
 # ERD
 ![Alt text](https://i.imgur.com/lTHRJE6.png)
