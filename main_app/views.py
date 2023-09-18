@@ -14,7 +14,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Project, Comment
 from django.contrib.auth.models import User
 # Forms imports
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, CommentForm
 # Image handling imports
 # import uuid
 # import boto3
