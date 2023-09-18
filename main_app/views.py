@@ -85,11 +85,11 @@ class ProjectUpdate(UpdateView):
 
 class ProjectDelete(DeleteView):
     model = Project
-    success_url = reverse_lazy("home")
-    # def get_success_url(self):
-    #     user_id = self.request.user.id
-    #     success_url = reverse("user_profile", kwargs={"user_id": user_id})
-    #     return success_url
+    success_url = reverse_lazy("user_profile")
+    def get_success_url(self):
+        user_id = self.request.user.id
+        success_url = reverse("user_profile", kwargs={"user_id": user_id})
+        return success_url
     
 
 ## Comments
