@@ -7,6 +7,9 @@
                 <p>Email address: {{ user.email }}</p>
                 <p>Username: {{ user.username }}</p>
             </div>
+            <div class="card-action">
+                <a href="{% url 'profile_edit' user.id %}">Edit</a>
+            </div>
         </div>
 
     {% for project in user.project_set.all %}
