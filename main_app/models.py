@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from datetime import timezone
+from django.utils import timezone
 
 from django.contrib.auth.models import User
 
@@ -26,11 +26,11 @@ class Project(models.Model):
 class Comment(models.Model):
     content = models.TextField(max_length=250)
     timestamp = models.DateTimeField(default=timezone.now)
-    project = models.ForeignKey(Project)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Comment with ID {self.id} made by User ID {self.user} on Project ID {self.project}"
     
     class Meta:
-        ordering = ['-date']
+        ordering = ['-timestamp']

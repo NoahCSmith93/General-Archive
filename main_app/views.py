@@ -18,7 +18,7 @@ from .models import Project, Comment
 # import os
 
 #### Custom views
-def projects_detail(request, project_id):
+def project_detail(request, project_id):
     project = Project.objects.get(id=project_id)
     return render(request, "projects/detail.html", {
         "project": project,

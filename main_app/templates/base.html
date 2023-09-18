@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cat Collector</title>
+    <title>General Archive</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -15,20 +15,10 @@
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;General Archive</a></li>
+          
         </ul>
         <ul class="right">
-          <li><a href="{% url 'about' %}">About</a></li>
-          <!-- {% if user.is_authenticated %} -->
             <li><a href="{% url 'project_create' %}">New Project</a></li>
-            <!-- <li><a href="{% url 'toys_index' %}">View All Toys</a></li>
-            <li><a href="{% url 'cats_create' %}">Create A Cat</a></li>
-            <li><a href="{% url 'index' %}">View All My Cats</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li> -->
-            <!-- {% else %} -->
-            <!-- <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li> -->
-          <!-- {% endif %} -->
         </ul>
       </div>
     </nav>
@@ -37,8 +27,3 @@
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2023 Cat Collector &nbsp;</div>
-  </footer>
-</body>
-</html>
