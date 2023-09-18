@@ -1,0 +1,30 @@
+body {
+    background-image: url("https://i.makeagif.com/media/12-12-2022/OJ7iej.gif");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+ul {
+    text-align: center;
+}
+.col-s4 {
+    text-align: center;
+}
+.card {
+    width: 33%;
+    float: left;
+}
+.card-content{
+    text-align: center;
+    font-weight: bold;
+    }
