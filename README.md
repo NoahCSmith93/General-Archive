@@ -28,6 +28,24 @@ Our blog is a platform designed for GA students to showcase, manage, and share t
 - AAU, I want to add a profile picture to my projects page, because I want to personalize my profile.
 - AAU, I want my personal details and projects to be secure, because I want to protect my privacy and intellectual property.
 
+# URLs
+
+### /home
+Splash page and instructions
+
+### /about
+Technologies used and credits
+
+### /user/<int:id>
+User's profile page. Name, email, bio, links, etc.
+
+### /projects
+Projects index page. Shows the most recently created projects.
+
+### /projects/<int:id>
+Project info page including thumbnail. Links to owning user page, github repo, deployment page.
+Projects info page will also include comments, stored in their own table.
+
 # Wireframes
 <img src="https://i.imgur.com/dDBiGpK.png">
 <img src="https://i.imgur.com/ZKTLimW.png">
