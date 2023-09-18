@@ -11,7 +11,7 @@ urlpatterns = [
 
     #### User:
     # The main profile page. This would display the user's name, email, bio, links, profile picture, and other personal details.
-    # path('user/<int:id>/', views.user_profile, name='user_profile'),
+    path('user/<int:user_id>/', views.user_profile, name='user_profile'),
     # To edit the profile details like name, bio, and links.
     # path('user/<int:id>/edit/', views.edit_profile, name='edit_profile'),
     # List all users projects

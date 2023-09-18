@@ -12,6 +12,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Model imports
 from .models import Project, Comment
+from django.contrib.auth.models import User
+# Forms imports
+from .forms import CustomUserCreationForm
 # Image handling imports
 # import uuid
 # import boto3
@@ -25,6 +28,13 @@ def home(request):
 
 def about(request):
     return render(request, "about.html")
+
+## Users
+def user_profile(request, user_id):
+    user = User.objects.get(id=user_id)
+    return render(request, "users/profile.html", {
+        "user": user,
+    })
 
 
 ## Projects
@@ -43,14 +53,14 @@ def project_detail(request, project_id):
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('home')
         else:
             error_message = 'Invalid sign up - try again'
-    form = UserCreationForm()
+    form = CustomUserCreationForm()
     context = {
         'form': form,
         'error_message': error_message
