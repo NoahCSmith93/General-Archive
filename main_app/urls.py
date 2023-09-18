@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import CommentCreate
 
 urlpatterns = [
     #### Root
@@ -37,7 +38,7 @@ urlpatterns = [
     # path('projects/<int:project_id>/add_photo', views.add_photo, name='add_photo'),
 
     #### Comments:
-    # path('projects/<int:project_id>/comments/new/', views.add_comment, name='add_comment'),
+    path('projects/<int:project_id>/comments/new/', views.CommentCreate.as_view(), name='add_comment'),
     # path('projects/<int:project_id>/comments/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
     # path('projects/<int:project_id>/comments/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
 

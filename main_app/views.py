@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Model imports
 from .models import Project, Comment
+from .forms import CommentForm
 # Image handling imports
 # import uuid
 # import boto3
@@ -60,6 +61,9 @@ def signup(request):
 
 #### Class-based views
 
+
+
+
 ## Projects
 class ProjectCreate(CreateView):
     model = Project
@@ -83,9 +87,21 @@ class ProjectDelete(DeleteView):
     
 
 ## Comments
-class CommentDelete(DeleteView):
+class CommentCreate(CreateView):
     model = Comment
-    success_url = reverse_lazy("project_detail")
+    fields = ['content']
+
+    def form_valid(self,form):
+        form.instance.project = Project.objects.get(pk=self.kwargs['project_id'])
+        return super().form_valid(form)
+
     def get_success_url(self):
-        return super().get_success_url()
+        return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after adding a comment    
+
+
+# class CommentDelete(DeleteView):
+#     model = Comment
+#     success_url = reverse_lazy("project_detail")
+#     def get_success_url(self):
+#         return super().get_success_url()
     
