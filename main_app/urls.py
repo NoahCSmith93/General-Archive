@@ -6,7 +6,7 @@ urlpatterns = [
     # Splash page and instructions
     path('', views.home, name='home'),
     # Technologies used, credits, details about blog
-    # path('about/', views.about, name='about'),
+    path('about/', views.about, name='about'),
 
 
     #### User:
@@ -28,7 +28,7 @@ urlpatterns = [
     # Project create page
     path('projects/create/', views.ProjectCreate.as_view(), name='project_create'),
     # Project edit route
-    path('projects/<int:id>/edit', views.ProjectUpdate.as_view(), name='project_edit'),
+    path('projects/<int:pk>/edit', views.ProjectUpdate.as_view(), name='project_edit'),
     # Project delete route
     path('projects/<int:pk>/delete', views.ProjectDelete.as_view(), name='project_delete'),
     
@@ -42,6 +42,6 @@ urlpatterns = [
     # path('projects/<int:project_id>/comments/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
 
     #### Auth:
-    # path('accounts/signup/', views.signup, name='signup'),
+    path('accounts/signup/', views.signup, name='signup'),
     
 ]

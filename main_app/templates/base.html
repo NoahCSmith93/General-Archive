@@ -18,7 +18,11 @@
           
         </ul>
         <ul class="right">
+            <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'project_create' %}">New Project</a></li>
+            <li><a href="{% url 'signup' %}">Signup</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -27,3 +31,8 @@
     {% block content %}
     {% endblock %}
   </main>
+  <footer class="page-footer">
+    <div class="right">Made by and for General Assembly students and alumn.</div>
+  </footer>
+</body>
+</html>

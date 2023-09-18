@@ -18,15 +18,44 @@ from .models import Project, Comment
 # import os
 
 #### Custom views
+
+## Root
 def home(request):
     return render(request, "home.html")
 
+def about(request):
+    return render(request, "about.html")
+
+
+## Projects
 def project_detail(request, project_id):
     project = Project.objects.get(id=project_id)
     return render(request, "projects/detail.html", {
         "project": project,
 
     })
+
+
+## Comments
+
+
+## Auth
+def signup(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+        else:
+            error_message = 'Invalid sign up - try again'
+    form = UserCreationForm()
+    context = {
+        'form': form,
+        'error_message': error_message
+        }
+    return render(request, 'registration/signup.html', context)
 
 
 #### Class-based views
@@ -54,7 +83,6 @@ class ProjectDelete(DeleteView):
     
 
 ## Comments
-
 class CommentDelete(DeleteView):
     model = Comment
     success_url = reverse_lazy("project_detail")
