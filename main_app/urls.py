@@ -17,12 +17,6 @@ urlpatterns = [
     # List all users projects
     path('user/<int:id>/projects/', views.user_projects_list, name='user_projects_list'),
     # Add a new project for user
-    path('user/<int:id>/projects/new/', views.new_project, name='new_project'),
-    # Edit users project
-    path('user/<int:id>/projects/<int:project_id>/edit/', views.edit_project, name='edit_project'),
-    # Delete a project for user
-    path('user/<int:id>/projects/<int:project_id>/delete/', views.delete_project, name='delete_project'),
-
 
 
     #### Projects:
@@ -32,7 +26,11 @@ urlpatterns = [
     # Project info page including thumbnail. Links to owning user page, github repo, deployment page.
     path('projects/<int:id>/', views.project_detail, name='project_detail'),
     # Project create page
-    path('projects/create/', views.ProjectCreate.as_view(), name='projects_create'),
+    path('projects/create/', views.ProjectCreate.as_view(), name='project_create'),
+    # Project edit route
+    path('projects/<int:id>/edit', views.ProjectUpdate.as_view(), name='project_edit'),
+    # Project delete route
+    path('projects/<int:id>/delete', views.ProjectDelete.as_view(), name='project_delete'),
     
 
     # url for s3 upload (thumbnail)

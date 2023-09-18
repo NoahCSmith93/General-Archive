@@ -11,7 +11,7 @@ class Project(models.Model):
     title = models.CharField(max_length=20)
     repository = models.CharField(max_length=200)
     deployment = models.CharField(max_length=200)
-    thumbnail = models.CharField(max_length=200)
+    thumbnail = models.CharField(max_length=200, default="")
     description = models.TextField(max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
