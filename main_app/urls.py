@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     #### Root
     # Splash page and instructions
-    # path('', views.home, name='home'),
+    path('', views.home, name='home'),
     # Technologies used, credits, details about blog
     # path('about/', views.about, name='about'),
 
@@ -30,7 +30,7 @@ urlpatterns = [
     # Project edit route
     path('projects/<int:id>/edit', views.ProjectUpdate.as_view(), name='project_edit'),
     # Project delete route
-    path('projects/<int:id>/delete', views.ProjectDelete.as_view(), name='project_delete'),
+    path('projects/<int:pk>/delete', views.ProjectDelete.as_view(), name='project_delete'),
     
 
     # url for s3 upload (thumbnail)

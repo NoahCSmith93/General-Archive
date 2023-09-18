@@ -18,6 +18,9 @@ from .models import Project, Comment
 # import os
 
 #### Custom views
+def home(request):
+    return render(request, "home.html")
+
 def project_detail(request, project_id):
     project = Project.objects.get(id=project_id)
     return render(request, "projects/detail.html", {
@@ -43,11 +46,11 @@ class ProjectUpdate(UpdateView):
 
 class ProjectDelete(DeleteView):
     model = Project
-    success_url = reverse_lazy("user_profile")
-    def get_success_url(self):
-        user_id = self.request.user.id
-        success_url = reverse("user_profile", kwargs={"user_id": user_id})
-        return success_url
+    success_url = reverse_lazy("home")
+    # def get_success_url(self):
+    #     user_id = self.request.user.id
+    #     success_url = reverse("user_profile", kwargs={"user_id": user_id})
+    #     return success_url
     
 
 ## Comments
