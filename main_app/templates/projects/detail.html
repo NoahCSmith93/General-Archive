@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{ project.title }}</span>
+        <p>Repository Link: {{ project.repository }}</p>
+        <p>Deployment Link: {{ project.deployment }}</p>
+        <p>Description: {{ project.description }}</p>
+    </div>
+    <div class="card-action">
+        <!-- <a href="{% url 'cats_update' cat.id %}">Update</a> -->
+        <a href="{% url 'project_delete' project.id %}">Delete</a>
+    </div>
+</div>
+
+
+{% endblock %}
