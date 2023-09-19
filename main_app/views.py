@@ -36,6 +36,10 @@ def user_profile(request, user_id):
         "user": user,
     })
 
+def user_redirect(request):
+    user_id = request.user.id
+    return redirect('user_profile', user_id=user_id)
+
 
 ## Projects
 def project_detail(request, project_id):
@@ -74,18 +78,18 @@ def signup(request):
 
 
 ## Projects
-class ProjectCreate(CreateView):
+class ProjectCreate(CreateView, LoginRequiredMixin):
     model = Project
     fields = ["title", "repository", "deployment", "thumbnail", "description"]
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
     
-class ProjectUpdate(UpdateView):
+class ProjectUpdate(UpdateView, LoginRequiredMixin):
     model = Project
     fields = ["repository", "deployment", "thumbnail", "description"]
 
-class ProjectDelete(DeleteView):
+class ProjectDelete(DeleteView, LoginRequiredMixin):
     model = Project
     success_url = reverse_lazy("user_profile")
     def get_success_url(self):
@@ -95,7 +99,7 @@ class ProjectDelete(DeleteView):
     
 
 ## Comments
-class CommentCreate(CreateView):
+class CommentCreate(CreateView, LoginRequiredMixin):
     model = Comment
     fields = ['content']
 
@@ -106,21 +110,21 @@ class CommentCreate(CreateView):
     def get_success_url(self):
         return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after adding a comment    
 
-class CommentUpdate(UpdateView):
+class CommentUpdate(UpdateView, LoginRequiredMixin):
     model = Comment
     fields = ['content']
 
     def get_success_url(self):
         return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after updating the comment
 
-class CommentDelete(DeleteView):
+class CommentDelete(DeleteView, LoginRequiredMixin):
     model = Comment
     def get_success_url(self):
         return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after deleting a comment
 
 
 ## Users
-class ProfileUpdate(UpdateView):
+class ProfileUpdate(UpdateView, LoginRequiredMixin):
     model = User
     fields = ["first_name", "last_name", "email"]
     success_url = reverse_lazy("user_profile")
