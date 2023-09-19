@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+# For reading .env
+import environ
+environ.Env()
+environ.Env.read_env()
+
 # import environ
 
 # environ.Env()

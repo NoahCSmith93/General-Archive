@@ -20,6 +20,7 @@ ul {
     width: 33%;
     float: left;
 }
+
 .card-content {
     text-align: center;
 }
@@ -68,3 +69,9 @@ ul {
     height: 100vh;
     background-size: cover; 
     }
+.collection {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
