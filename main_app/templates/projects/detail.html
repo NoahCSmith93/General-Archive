@@ -30,20 +30,41 @@
         </div>
     </div>
 
-    <!-- Display Comments Section -->
-    <div class="comments-section">
-        <h4>Comments</h4>
-        {% for comment in project.comment_set.all %}
-            <div class="comment">
-                <strong>{{ comment.user.first_name }} {{ comment.user.last_name }}</strong> said on {{ comment.timestamp|date:"F j, Y" }}:
-                <p>{{ comment.content }}</p>
-                {% if comment.user.id == user.id %}
-                <a href="{% url 'edit_comment' project.id comment.id %}">Edit</a>
-                <a href="{% url 'delete_comment' project.id comment.id %}">Delete</a>
-                {% endif %}
-            </div>
-        {% endfor %}
-    </div>
+<!-- Display Comments Section -->
+<div class="comments-section">
+    <h4>Comments</h4>
+    {% if project.comment_set.all.count == 0 %}
+    <p>No Comments ☹️</p>
+    {% else %}
+    <table>
+        <!-- Table Header -->
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Date</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <!-- Table Body -->
+        <tbody>
+            {% for comment in project.comment_set.all %}
+            <tr>
+                <td>{{ comment.user.first_name }} {{ comment.user.last_name }}</td>
+                <td>{{ comment.timestamp|date:"F j, Y" }}</td>
+                <td>{{ comment.content }}</td>
+                <td>
+                  {% if comment.user.id == user.id %}
+                    <a href="{% url 'edit_comment' project.id comment.id %}">Edit</a> |
+                    <a href="{% url 'delete_comment' project.id comment.id %}">Delete</a>
+                  {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
 
     <!-- Add Comment Section -->
     <div class="add-comment">
