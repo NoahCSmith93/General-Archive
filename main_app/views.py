@@ -16,9 +16,9 @@ from django.contrib.auth.models import User
 # Forms imports
 from .forms import CustomUserCreationForm, CommentForm
 # Image handling imports
-# import uuid
-# import boto3
-# import os
+import uuid
+import boto3
+import os
 
 #### Custom views
 
