@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import CommentCreate
+from .views import CommentCreate, CommentUpdate, CommentDelete
 
 urlpatterns = [
     #### Root
@@ -39,8 +39,9 @@ urlpatterns = [
 
     #### Comments:
     path('projects/<int:project_id>/comments/new/', views.CommentCreate.as_view(), name='add_comment'),
-    # path('projects/<int:project_id>/comments/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
-    # path('projects/<int:project_id>/comments/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
+    path('projects/<int:project_id>/comments/<int:pk>/edit/', views.CommentUpdate.as_view(), name='edit_comment'),
+    path('projects/<int:project_id>/comments/<int:pk>/delete/', views.CommentDelete.as_view(), name='delete_comment'),
+
 
     #### Auth:
     path('accounts/signup/', views.signup, name='signup'),

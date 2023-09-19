@@ -24,6 +24,7 @@ class Project(models.Model):
 
 
 class Comment(models.Model):
+    # user_id = models.IntegerField(default=1, editable =False)
     content = models.TextField(max_length=250)
     timestamp = models.DateTimeField(default=timezone.now)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)

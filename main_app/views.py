@@ -77,7 +77,6 @@ def signup(request):
 class ProjectCreate(CreateView):
     model = Project
     fields = ["title", "repository", "deployment", "thumbnail", "description"]
-
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -107,10 +106,17 @@ class CommentCreate(CreateView):
     def get_success_url(self):
         return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after adding a comment    
 
+class CommentUpdate(UpdateView):
+    model = Comment
+    fields = ['content']
 
-# class CommentDelete(DeleteView):
-#     model = Comment
-#     success_url = reverse_lazy("project_detail")
-#     def get_success_url(self):
-#         return super().get_success_url()
+    def get_success_url(self):
+        return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after updating the comment
+
+class CommentDelete(DeleteView):
+    model = Comment
+    
+    def get_success_url(self):
+        return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after deleting a comment
+
     
