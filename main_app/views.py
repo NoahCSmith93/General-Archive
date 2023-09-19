@@ -115,8 +115,17 @@ class CommentUpdate(UpdateView):
 
 class CommentDelete(DeleteView):
     model = Comment
-    
     def get_success_url(self):
         return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after deleting a comment
 
+
+## Users
+class ProfileUpdate(UpdateView):
+    model = User
+    fields = ["first_name", "last_name", "email"]
+    success_url = reverse_lazy("user_profile")
+    def get_success_url(self):
+        user_id = self.request.user.id
+        success_url = reverse("user_profile", kwargs={"user_id": user_id})
+        return success_url
     

@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 # One to many with comments (project -|--< comments)
 # One to many with users (project >--|- user)
 class Project(models.Model):
-    title = models.CharField(max_length=20)
+    title = models.CharField(max_length=50)
     repository = models.CharField(max_length=200)
     deployment = models.CharField(max_length=200)
     thumbnail = models.CharField(max_length=200, default="")
