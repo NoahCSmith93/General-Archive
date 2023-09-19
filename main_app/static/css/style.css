@@ -1,4 +1,4 @@
-.main {
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -25,7 +25,7 @@ ul {
     font-weight: bold;
 }   
 .move {  
-    background-image: url("");
+    background-image: url();
     background-repeat: no-repeat;
     height: 100vh;
     background-size: cover; 
