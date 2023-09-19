@@ -1,6 +1,7 @@
 # Basic imports
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
+from django.http import HttpResponseForbidden
 # Class-based views imports
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
@@ -49,6 +50,7 @@ def project_detail(request, project_id):
 
     })
 
+@login_required
 def add_project_photo(request, project_id):
     # input field must be named 'photo-file'
     photo_file = request.FILES.get('photo-file', None)
@@ -111,9 +113,28 @@ class ProjectUpdate(UpdateView, LoginRequiredMixin):
     model = Project
     fields = ["repository", "deployment", "thumbnail", "description"]
 
+    def dispatch(self, request, *args, **kwargs):
+        # Get the project to be operated on
+        project = get_object_or_404(self.model, id=kwargs['pk'])
+        # Check if the logged-in user is the owner of the project
+        if request.user != project.user:
+            return HttpResponseForbidden("You don't have permission to access this resource.")
+        # Return to normal operation
+        return super().dispatch(request, *args, **kwargs)
+
 class ProjectDelete(DeleteView, LoginRequiredMixin):
     model = Project
     success_url = reverse_lazy("user_profile")
+    
+    def dispatch(self, request, *args, **kwargs):
+        # Get the project to be operated on
+        project = get_object_or_404(self.model, id=kwargs['pk'])
+        # Check if the logged-in user is the owner of the project
+        if request.user != project.user:
+            return HttpResponseForbidden("You don't have permission to access this resource.")
+        # Return to normal operation
+        return super().dispatch(request, *args, **kwargs)
+
     def get_success_url(self):
         user_id = self.request.user.id
         success_url = reverse("user_profile", kwargs={"user_id": user_id})
@@ -136,11 +157,30 @@ class CommentUpdate(UpdateView, LoginRequiredMixin):
     model = Comment
     fields = ['content']
 
+    def dispatch(self, request, *args, **kwargs):
+        # Get the comment to be operated on
+        comment = get_object_or_404(self.model, id=kwargs['pk'])
+        # Check if the logged-in user is the owner of the comment
+        if request.user != comment.user:
+            return HttpResponseForbidden("You don't have permission to access this resource.")
+        # Return to normal operation
+        return super().dispatch(request, *args, **kwargs)
+
     def get_success_url(self):
         return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after updating the comment
 
 class CommentDelete(DeleteView, LoginRequiredMixin):
     model = Comment
+
+    def dispatch(self, request, *args, **kwargs):
+        # Get the comment to be operated on
+        comment = get_object_or_404(self.model, id=kwargs['pk'])
+        # Check if the logged-in user is the owner of the comment
+        if request.user != comment.user:
+            return HttpResponseForbidden("You don't have permission to access this resource.")
+        # Return to normal operation
+        return super().dispatch(request, *args, **kwargs)
+
     def get_success_url(self):
         return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after deleting a comment
 
@@ -150,6 +190,7 @@ class ProfileUpdate(UpdateView, LoginRequiredMixin):
     model = User
     fields = ["first_name", "last_name", "email"]
     success_url = reverse_lazy("user_profile")
+    
     def get_success_url(self):
         user_id = self.request.user.id
         success_url = reverse("user_profile", kwargs={"user_id": user_id})
