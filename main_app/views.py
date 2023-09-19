@@ -67,6 +67,7 @@ def add_project_photo(request, project_id):
             # update project's thumbnail to new url
             project = Project.objects.get(id=project_id)
             project.thumbnail = url
+            project.save()
         except Exception as e:
             print('An error occured uploading to S3')
             print(e)
@@ -104,7 +105,7 @@ def signup(request):
 ## Projects
 class ProjectCreate(CreateView, LoginRequiredMixin):
     model = Project
-    fields = ["title", "repository", "deployment", "thumbnail", "description"]
+    fields = ["title", "repository", "deployment", "description"]
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -148,6 +149,7 @@ class CommentCreate(CreateView, LoginRequiredMixin):
 
     def form_valid(self,form):
         form.instance.project = Project.objects.get(pk=self.kwargs['project_id'])
+        form.instance.user = self.request.user
         return super().form_valid(form)
 
     def get_success_url(self):

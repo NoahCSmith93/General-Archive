@@ -3,6 +3,7 @@
 
     <div class="row">
         <div class="col s6">
+            <img src="{{ project.thumbnail }}" alt="Project thumbnail">
             <form action="{% url 'add_project_photo' project.id %}" method="post" class="card-panel" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="file" name="photo-file">
@@ -20,7 +21,7 @@
                     <p>Description: {{ project.description }}</p>
                 </div>
                 <div class="card-action">
-                    {% if project.user = user.id %}
+                    {% if project.user.id == user.id %}
                         <a href="{% url 'project_delete' project.id %}">Delete</a>
                         <a href="{% url 'project_edit' project.id %}">Edit</a>
                     {% endif %}
@@ -34,9 +35,9 @@
         <h4>Comments</h4>
         {% for comment in project.comment_set.all %}
             <div class="comment">
-                <strong>{{ comment.user.username }}</strong> said on {{ comment.timestamp|date:"F j, Y" }}:
+                <strong>{{ comment.user.first_name }} {{ comment.user.last_name }}</strong> said on {{ comment.timestamp|date:"F j, Y" }}:
                 <p>{{ comment.content }}</p>
-                {% if comment.user = user.id %}
+                {% if comment.user.id == user.id %}
                 <a href="{% url 'edit_comment' project.id comment.id %}">Edit</a>
                 <a href="{% url 'delete_comment' project.id comment.id %}">Delete</a>
                 {% endif %}
