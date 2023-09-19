@@ -14,7 +14,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Project, Comment
 from django.contrib.auth.models import User
 # Forms imports
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, CommentForm
 # Image handling imports
 # import uuid
 # import boto3
@@ -70,11 +70,13 @@ def signup(request):
 
 #### Class-based views
 
+
+
+
 ## Projects
 class ProjectCreate(CreateView):
     model = Project
     fields = ["title", "repository", "deployment", "thumbnail", "description"]
-
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -93,11 +95,28 @@ class ProjectDelete(DeleteView):
     
 
 ## Comments
+class CommentCreate(CreateView):
+    model = Comment
+    fields = ['content']
+
+    def form_valid(self,form):
+        form.instance.project = Project.objects.get(pk=self.kwargs['project_id'])
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after adding a comment    
+
+class CommentUpdate(UpdateView):
+    model = Comment
+    fields = ['content']
+
+    def get_success_url(self):
+        return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after updating the comment
+
 class CommentDelete(DeleteView):
     model = Comment
-    success_url = reverse_lazy("project_detail")
     def get_success_url(self):
-        return super().get_success_url()
+        return reverse('project_detail', args=[self.object.project.id])  # Redirect to the project detail after deleting a comment
 
 
 ## Users
