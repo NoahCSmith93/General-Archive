@@ -32,9 +32,8 @@ urlpatterns = [
     # Project delete route
     path('projects/<int:pk>/delete', views.ProjectDelete.as_view(), name='project_delete'),
     
-
     # url for s3 upload (thumbnail)
-    # path('projects/<int:project_id>/add_photo', views.add_photo, name='add_photo'),
+    path('projects/<int:project_id>/add_photo', views.add_project_photo, name='add_project_photo'),
 
     #### Comments:
     path('projects/<int:project_id>/comments/new/', views.CommentCreate.as_view(), name='add_comment'),
