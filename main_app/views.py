@@ -49,6 +49,28 @@ def project_detail(request, project_id):
 
     })
 
+def add_project_photo(request, project_id):
+    # input field must be named 'photo-file'
+    photo_file = request.FILES.get('photo-file', None)
+    AWS_ACCESS_KEY = os.environ['AWS_ACCESS_KEY']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    if photo_file:
+        s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+        # uuid automatically generates unique filenames
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            # update project's thumbnail to new url
+            project = Project.objects.get(id=project_id)
+            project.thumbnail = url
+        except Exception as e:
+            print('An error occured uploading to S3')
+            print(e)
+        # do something else if we didn't
+    return redirect('project_detail', project_id=project_id)
+
 
 ## Comments
 
