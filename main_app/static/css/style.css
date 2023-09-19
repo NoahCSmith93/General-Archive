@@ -30,15 +30,21 @@ ul {
 }
 
 .comments-section {
-    border-top: 1px solid #e0e0e0;
+    border-top: 30px solid #2fbbdb;
+    background-color: #e8a0a0;
     padding-top: 20px;
     margin-top: 20px;
+    border-radius: 10px;
 }
     
 .comment {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 20px solid #2fbbdb;
     padding: 15px 0;
+    border: 20px solid #e0e0e0; /* Light border for each comment */
+    border-radius: 5px;
+    background-color: #e47272; /*  background */
 }
+
     
 .comment:last-child {
     border-bottom: none;
@@ -72,7 +78,7 @@ ul {
 }
     
 .comment-actions a:hover {
-    color: #e912df; 
+    color: #64c072; 
     text-decoration: underline;
 }
     
