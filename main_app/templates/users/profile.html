@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title">{{ user.first_name }} {{ user.last_name }}</span>
-                <p>Email address: {{ user.email }}</p>
-                <p>Username: {{ user.username }}</p>
-            </div>
-            <div class="card-action">
-                <a href="{% url 'profile_edit' user.id %}">Edit</a>
-            </div>
-        </div>
 
     {% for project in user.project_set.all %}
+          
+
+    <ul class="collection">
+        <li class="collection-item avatar">
+            <i class="large material-icons circle">folder</i>   
+            <span class="card-title">{{ user.first_name }} {{ user.last_name }}</span>
+          <p>Email address: {{ user.email }} <br>
+            Username: {{ user.username }}
+          </p>
+          <a href="{% url 'profile_edit' user.id %}" class="secondary-content"><i class=" material-icons orange-text text-darken-4 ">border_color</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <i class="large material-icons circle">folder</i>
+          <span class="title">{{ project.title }}</span>
+          <p>Repository Link: {{ project.repository }} <br>
+          Deployment Link: {{ project.deployment }} <br>
+          Description: {{ project.description }}
+          </p>
     <a href="{% url 'project_detail' project.id %}">
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title"> {{ project.title }}</span>
-                <p>Repository Link: {{ project.repository }}</p>
-                <p>Deployment Link: {{ project.deployment }}</p>
-                <p>Description: {{ project.description }}</p>
-            </div>
-        </div>
-    </a>
+        <a href="{% url 'project_detail' project.id %}" class="secondary-content"><i class=" material-icons">chat_bubble</i></a>
+        </li>
+      </ul>
     {% endfor %}
 
 
