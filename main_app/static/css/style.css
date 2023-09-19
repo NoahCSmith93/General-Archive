@@ -4,6 +4,9 @@ body {
     flex-direction: column;
 }
 
+#id_content{
+    color: black !important
+}
 .row {
     margin-top: 30px;
     background: linear-gradient(145deg, #b3c9eb, #b5c6e0);
@@ -35,7 +38,9 @@ ul {
     overflow: hidden;
     padding: 30px;
 }
-
+.card-action{
+    text-align: center;
+}
 .card-content {
     text-align: center;
 }
@@ -90,6 +95,11 @@ ul {
     transition: background-color 0.3s; 
 }
 
+.comment-actions a:hover {
+    color: #2709ed; 
+    text-decoration: underline;
+}
+
 .add-comment a:hover {
     background-color: #8ee9e9;
 }
@@ -108,4 +118,19 @@ ul {
     padding: 10px;
 }
 
-........
+form{
+    color: black !important
+}
+input[type=text], input[type=email], input[type=number], input[type=password]{
+    color: black
+}
+
+.row2{
+    margin-right: 130px;
+}
+.page-footer {
+  padding: 0
+}
+.page-footer div p{
+    text-align: center;
+}

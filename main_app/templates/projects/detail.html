@@ -34,7 +34,7 @@
 <div class="comments-section">
     <h4>Comments</h4>
     {% if project.comment_set.all.count == 0 %}
-    <p>No Comments ☹</p>
+    <p>No Comments ☹️</p>
     {% else %}
     <table>
         <!-- Table Header -->
@@ -53,7 +53,7 @@
                 <td>{{ comment.user.first_name }} {{ comment.user.last_name }}</td>
                 <td>{{ comment.timestamp|date:"F j, Y" }}</td>
                 <td>{{ comment.content }}</td>
-                <td>
+                <td class="comment-actions">
                   {% if comment.user.id == user.id %}
                     <a href="{% url 'edit_comment' project.id comment.id %}">Edit</a> |
                     <a href="{% url 'delete_comment' project.id comment.id %}">Delete</a>
