@@ -15,9 +15,8 @@ urlpatterns = [
     path('user/<int:user_id>/', views.user_profile, name='user_profile'),
     # To edit the profile details like name, bio, and links.
     path('user/<int:pk>/edit/', views.ProfileUpdate.as_view(), name='profile_edit'),
-    # List all users projects
-    # path('user/<int:id>/projects/', views.user_projects_list, name='user_projects_list'),
-    # Add a new project for user
+    # User redirect route - redirects to the proper user ID
+    path('user/', views.user_redirect, name='user_redirect'),
 
 
     #### Projects:
