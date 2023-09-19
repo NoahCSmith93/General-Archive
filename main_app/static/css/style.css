@@ -27,4 +27,52 @@ ul {
 .card-content{
     text-align: center;
     font-weight: bold;
-    }
+}
+
+.comments-section {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+    
+.comment {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+}
+    
+.comment:last-child {
+    border-bottom: none;
+}
+    
+.comment-author {
+    display: flex;
+    align-items: center;
+}
+    
+.comment-author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+    
+.comment-content {
+    margin: 10px 0;
+}
+    
+.comment-actions {
+    font-size: 0.9em;
+}
+    
+.comment-actions a {
+    margin-right: 10px;
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+    
+.comment-actions a:hover {
+    color: #e912df; 
+    text-decoration: underline;
+}
+    
