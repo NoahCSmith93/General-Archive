@@ -3,6 +3,13 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+
+.row {
+    margin-top: 30px;
+    background: linear-gradient(145deg, #b3c9eb, #b5c6e0);
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff; /* Box shadow for 3D effect */
+}
+
 main {
     flex: 1 0 auto;
 }
@@ -10,39 +17,64 @@ main {
 h1, h2 {
     text-align: center;
 }
+
 ul {
     text-align: center;
 }
+
 .col-s4 {
     text-align: center;
 }
+
 .card {
-    width: 33%;
-    float: left;
+    width: 85%;
+    float: right;
+    border-color: #009dff;
+    background: linear-gradient(145deg, #b5c6e0, #b3c9eb);
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff; 
+    overflow: hidden;
+    padding: 30px;
 }
 
 .card-content {
     text-align: center;
 }
 
+.card-content .card-title {
+    color: #e99922;
+    font-weight: 500;
+}
+
+.card-content p:nth-child(2) {
+    color: #6cda90; /* Color for the first paragraph */
+}
+
+.card-content p:nth-child(3) {
+    color: #31be69; 
+}
+
+.card-content p:nth-child(4) {
+    color: #2b7a34; 
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .comments-section {
     border-top: 30px solid #2fbbdb;
-    background-color: #bae4f4;
+    background: linear-gradient(145deg, #55adba, #95ebeb);
     padding-top: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff;
 }
 
 .comment strong {
     font-weight: bold;
 }
 
-.comment a:hover {
-    color: #9800b3;
-}
-
 .add-comment {
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .add-comment h5 {
@@ -52,26 +84,28 @@ ul {
 .add-comment a {
     padding: 5px 10px;
     text-decoration: none;
-    color: #7b0373;
+    color: #05414d;
     background-color: #2fbbdb;
     border-radius: 5px;
     transition: background-color 0.3s; 
 }
 
 .add-comment a:hover {
-    background-color: #cde57f;
+    background-color: #8ee9e9;
 }
-
 
 .move {  
     background-image: url();
     background-repeat: no-repeat;
     height: 100vh;
     background-size: cover; 
-    }
+}
+
 .collection {
     margin: auto;
     width: 50%;
     border: 3px solid green;
     padding: 10px;
 }
+
+........
