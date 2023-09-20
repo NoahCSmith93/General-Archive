@@ -25,9 +25,10 @@
                         <a class="project-owner" href="{% url 'user_profile' project.user.id %}">
                             {{ project.user.first_name }} {{ project.user.last_name }}
                         </a>
+                        <br>
                     </div>
-                    <p>Repository Link: {{ project.repository }}</p>
-                    <p>Website Link: {{ project.deployment }}</p>
+                    <p>Repository:<br><a href="https://{{ project.repository }}">{{ project.repository }}</a></p>
+                    <p>Website:<br><a href="https://{{ project.deployment }}">{{ project.deployment }}</a></p>
                     <hr>
                     <p>{{ project.description }}</p>
                 </div>
