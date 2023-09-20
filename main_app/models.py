@@ -20,6 +20,9 @@ class Project(models.Model):
     
     def get_absolute_url(self):
         return reverse('project_detail', kwargs={'project_id': self.id})
+    
+    class Meta:
+        ordering = ['-id']
 
 
 
