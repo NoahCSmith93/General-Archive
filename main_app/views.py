@@ -97,10 +97,8 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
+
 #### Class-based views
-
-
-
 
 ## Projects
 class ProjectCreate(CreateView, LoginRequiredMixin):
@@ -112,7 +110,7 @@ class ProjectCreate(CreateView, LoginRequiredMixin):
     
 class ProjectUpdate(UpdateView, LoginRequiredMixin):
     model = Project
-    fields = ["repository", "deployment", "thumbnail", "description"]
+    fields = ["repository", "deployment", "description"]
 
     def dispatch(self, request, *args, **kwargs):
         # Get the project to be operated on
