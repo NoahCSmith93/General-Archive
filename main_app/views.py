@@ -141,6 +141,10 @@ class ProjectDelete(DeleteView, LoginRequiredMixin):
         success_url = reverse("user_profile", kwargs={"user_id": user_id})
         return success_url
     
+class ProjectList(ListView):
+    model = Project
+    paginate_by = 30
+    
 
 ## Comments
 class CommentCreate(CreateView, LoginRequiredMixin):
