@@ -134,3 +134,8 @@ input[type=text], input[type=email], input[type=number], input[type=password]{
 .page-footer div p{
     text-align: center;
 }
+.responsive-img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
