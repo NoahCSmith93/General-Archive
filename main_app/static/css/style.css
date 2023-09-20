@@ -176,6 +176,10 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.row4 {
+    display: inline-flex;
+    justify-content:left;
+}
 
 .project-content {
     text-align: left;
@@ -183,8 +187,4 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
 
 .project-header {
     text-align: center;
-}
-.row4 {
-    display: inline-flex;
-    justify-content:left;
 }
