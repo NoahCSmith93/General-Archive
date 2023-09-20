@@ -20,9 +20,15 @@
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">{{ project.title }}</span>
+                    <span class="subtitle">
+                        by 
+                        <a href="{% url 'user_profile' project.user.id %}">
+                            {{ project.user.first_name }} {{ project.user.last_name }}
+                        </a>
+                    </span>
                     <p>Repository Link: {{ project.repository }}</p>
                     <p>Deployment Link: {{ project.deployment }}</p>
-                    <p>Description: {{ project.description }}</p>
+                    <p>{{ project.description }}</p>
                 </div>
                 <div class="card-action">
                     {% if project.user.id == user.id %}
