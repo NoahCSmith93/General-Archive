@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col s6">
-            <img src="{{ project.thumbnail }}" alt="Project thumbnail">
+            <img src="{{ project.thumbnail }}" alt="Project thumbnail" class="thumbnail">
             <form action="{% url 'add_project_photo' project.id %}" method="post" class="card-panel" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="file" name="photo-file">
