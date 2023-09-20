@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 </head>
 <body class=" "main>
@@ -37,10 +37,10 @@
           {% endif %}
         </ul>
         <ul class="sidenav" id="mobile-demo">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-          <li><a href="mobile.html">Mobile</a></li>
+          <li><a href="{% url 'project_create' %}"><i class="material-icons left">add</i>New Project</a></li>
+          <li><a href="{% url 'user_redirect' %}"><i class="material-icons left">face</i>Profile</a></li>
+          <li><a href="{% url 'about' %}"><i class="material-icons left">people</i>About</a></li>
+          <li><a href="{% url 'logout' %}"><i class="material-icons left">cancel</i>Logout</a></li>
         </ul>
       </div>
      </div>
