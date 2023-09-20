@@ -143,3 +143,7 @@ input[type=text], input[type=email], input[type=number], input[type=password]{
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.row4 {
+    display: inline-flexbox;
+    flex-wrap: wrap;
+}

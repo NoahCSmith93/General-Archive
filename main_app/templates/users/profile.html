@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row3">
-    <div class="col s12">
+    <div class="col-s12">
     <ul class="collection">
         <li class="collection-item avatar">
             <i class="large material-icons circle">folder</i>   
@@ -17,20 +17,22 @@
     {% for project in user.project_set.all %}
           
 
-
-      
-      <ul class="collection">
-        <li class="collection-item avatar">
-          <i class="large material-icons circle">folder</i>
-          <span class="title">{{ project.title }}</span>
-          <p>Repository Link: {{ project.repository }} <br>
-          Deployment Link: {{ project.deployment }} <br>
-          Description: {{ project.description }}
-          </p>
-    <a href="{% url 'project_detail' project.id %}">
-        <a href="{% url 'project_detail' project.id %}" class="secondary-content"><i class=" material-icons">info</i></a>
-        </li>
-      </ul>
+    <div class="row4">
+        <div class="col-s6">
+            <ul class="collection">
+                <li class="collection-item avatar">
+                <i class="large material-icons circle">folder</i>
+                <span class="title">{{ project.title }}</span>
+                <p>Repository Link: {{ project.repository }} <br>
+                Deployment Link: {{ project.deployment }} <br>
+                Description: {{ project.description }}
+                </p>
+                <a href="{% url 'project_detail' project.id %}">
+                <a href="{% url 'project_detail' project.id %}" class="secondary-content"><i class=" material-icons">info</i></a>
+                </li>
+            </ul>
+      </div>
+    </div>
     {% endfor %}
 
 
