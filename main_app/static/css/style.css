@@ -50,15 +50,15 @@ ul {
     font-weight: 500;
 }
 
-.card-content p:nth-child(2) {
+.card-content p:nth-child(1) {
     color: #6cda90; /* Color for the first paragraph */
 }
 
-.card-content p:nth-child(3) {
+.card-content p:nth-child(2) {
     color: #31be69; 
 }
 
-.card-content p:nth-child(4) {
+.card-content p:nth-child(3) {
     color: #2b7a34; 
     font-family: 'Courier New', Courier, monospace;
 }
@@ -142,4 +142,12 @@ input[type=text], input[type=email], input[type=number], input[type=password]{
 .row3 {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.project-content {
+    text-align: left;
+}
+
+.project-header {
+    text-align: center;
 }
