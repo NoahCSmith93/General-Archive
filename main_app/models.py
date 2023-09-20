@@ -38,3 +38,11 @@ class Comment(models.Model):
     
     class Meta:
         ordering = ['-timestamp']
+
+# UserInfo model used to add additional information onto the User model in a 1:1 relationship
+class UserInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_image = models.CharField(max_length=200, null=True, blank=True)
+    github = models.CharField(max_length=200, null=True, blank=True)
+    linkedin = models.CharField(max_length=200, null=True, blank=True)
+    website = models.CharField(max_length=200, null=True, blank=True)
