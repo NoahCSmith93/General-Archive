@@ -97,10 +97,8 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
+
 #### Class-based views
-
-
-
 
 ## Projects
 class ProjectCreate(CreateView, LoginRequiredMixin):
@@ -112,7 +110,7 @@ class ProjectCreate(CreateView, LoginRequiredMixin):
     
 class ProjectUpdate(UpdateView, LoginRequiredMixin):
     model = Project
-    fields = ["repository", "deployment", "thumbnail", "description"]
+    fields = ["repository", "deployment", "description"]
 
     def dispatch(self, request, *args, **kwargs):
         # Get the project to be operated on
@@ -140,6 +138,10 @@ class ProjectDelete(DeleteView, LoginRequiredMixin):
         user_id = self.request.user.id
         success_url = reverse("user_profile", kwargs={"user_id": user_id})
         return success_url
+    
+class ProjectList(ListView):
+    model = Project
+    paginate_by = 30
     
 
 ## Comments

@@ -16,17 +16,19 @@
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="{%url 'home' %}" class="brand-logo"><img class="responsive-img" src="GALogoTransparent.png"></i>GENERAL ARCHIVE</a>
+        <a href="{%url 'home' %}" class="brand-logo"><img class="responsive-img" style="width:30px;height:auto;" src="{% static '/GALogoTransparent.png' %}"></i>GENERAL ARCHIVE</a>
         <ul>
           
         </ul>
         <ul class="right">
+          <li><a href="{% url 'project_list' %}"><i class="material-icons left">view_comfy</i>Recent Projects</a></li>
           {% if user.is_authenticated %}
-            <li><a href="{% url 'about' %}"><i class="material-icons left">people</i>About</a></li>
             <li><a href="{% url 'project_create' %}"><i class="material-icons left">add</i>New Project</a></li>
             <li><a href="{% url 'user_redirect' %}"><i class="material-icons left">face</i>Profile</a></li>
+            <li><a href="{% url 'about' %}"><i class="material-icons left">people</i>About</a></li>
             <li><a href="{% url 'logout' %}"><i class="material-icons left">cancel</i>Logout</a></li>
           {% else %}
+            <li><a href="{% url 'about' %}"><i class="material-icons left">people</i>About</a></li>
             <li><a href="{% url 'login' %}"><i class="material-icons left">fingerprint</i>Login</a></li>
             <li><a href="{% url 'signup' %}"><i class="material-icons left">cloud</i>Signup</a></li>
           {% endif %}

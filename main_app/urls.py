@@ -21,7 +21,7 @@ urlpatterns = [
 
     #### Projects:
     # Shows the most recently created projects
-    # path('projects/', views.projects_index, name='index'),
+    path('projects/', views.ProjectList.as_view(), name='project_list'),
     # Projects info page will also include comments, stored in their own table.
     # Project info page including thumbnail. Links to owning user page, github repo, deployment page.
     path('projects/<int:project_id>/', views.project_detail, name='project_detail'),

@@ -1,21 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<ul class="collection">
-    <li class="collection-item avatar">
-        <i class="large material-icons circle">folder</i>   
-        <span class="card-title">{{ user.first_name }} {{ user.last_name }}</span>
-      <p>Email address: {{ user.email }} <br>
-        Username: {{ user.username }}
-      </p>
-      <a href="{% url 'profile_edit' user.id %}" class="secondary-content"><i class=" material-icons orange-text text-darken-4 ">account_circle</i></a>
-    </li>
-  </ul>
-
+<div class="row3">
+    <div class="col s12">
+    <ul class="collection">
+        <li class="collection-item avatar">
+            <i class="large material-icons circle">folder</i>   
+            <span class="card-title">{{ user.first_name }} {{ user.last_name }}</span>
+        <p>Email address: {{ user.email }} <br>
+            Username: {{ user.username }}
+        </p>
+        <a href="{% url 'profile_edit' user.id %}" class="secondary-content"><i class=" material-icons orange-text text-darken-4 ">account_circle</i></a>
+        </li>
+    </ul>
+    </div>
+</div>
     {% for project in user.project_set.all %}
-          
-
-
-      
       <ul class="collection">
         <li class="collection-item avatar">
           <i class="large material-icons circle">folder</i>

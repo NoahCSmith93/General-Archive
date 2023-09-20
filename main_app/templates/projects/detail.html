@@ -3,7 +3,11 @@
 
     <div class="row">
         <div class="col s6">
-            <img src="{{ project.thumbnail }}" alt="Project thumbnail" class="thumbnail">
+            {% if project.thumbnail %}
+                <img src="{{ project.thumbnail }}"  style="width:50% ;height:auto;"  alt="Project thumbnail">
+            {% else %}
+                <p>Upload a thumbnail!</p>
+            {% endif %}
             <form action="{% url 'add_project_photo' project.id %}" method="post" class="card-panel" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="file" name="photo-file">
@@ -14,11 +18,18 @@
         </div>
         <div class="col s6">
             <div class="card">
-                <div class="card-content">
-                    <span class="card-title">{{ project.title }}</span>
+                <div class="card-content project-content">
+                    <div class="project-header">
+                        <span class="card-title">{{ project.title }}</span>
+                        by 
+                        <a class="project-owner" href="{% url 'user_profile' project.user.id %}">
+                            {{ project.user.first_name }} {{ project.user.last_name }}
+                        </a>
+                    </div>
                     <p>Repository Link: {{ project.repository }}</p>
-                    <p>Deployment Link: {{ project.deployment }}</p>
-                    <p>Description: {{ project.description }}</p>
+                    <p>Website Link: {{ project.deployment }}</p>
+                    <hr>
+                    <p>{{ project.description }}</p>
                 </div>
                 <div class="card-action">
                     {% if project.user.id == user.id %}

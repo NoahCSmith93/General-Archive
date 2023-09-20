@@ -167,3 +167,20 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
 .page-footer div p{
     text-align: center;
 }
+.responsive-img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.row3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.project-content {
+    text-align: left;
+}
+
+.project-header {
+    text-align: center;
+}
