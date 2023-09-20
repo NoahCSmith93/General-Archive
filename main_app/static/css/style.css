@@ -176,6 +176,11 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
     margin-top: 30px;
     margin-bottom: 30px;
 }
+<<<<<<< HEAD
+.row4 {
+    display: inline-flex;
+    justify-content:left;
+=======
 
 .project-content {
     text-align: left;
@@ -183,4 +188,5 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
 
 .project-header {
     text-align: center;
+>>>>>>> 63c0828c1c9085a06c0d0a4297bae5b4ac32f2ae
 }

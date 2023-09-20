@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row3">
-    <div class="col s12">
+    <div class="col-s12">
     <ul class="collection">
         <li class="collection-item avatar">
             <i class="large material-icons circle">folder</i>   
@@ -15,18 +15,30 @@
     </div>
 </div>
     {% for project in user.project_set.all %}
-      <ul class="collection">
-        <li class="collection-item avatar">
-          <i class="large material-icons circle">folder</i>
-          <span class="title">{{ project.title }}</span>
-          <p>Repository Link: {{ project.repository }} <br>
-          Deployment Link: {{ project.deployment }} <br>
-          Description: {{ project.description }}
-          </p>
-    <a href="{% url 'project_detail' project.id %}">
-        <a href="{% url 'project_detail' project.id %}" class="secondary-content"><i class=" material-icons">info</i></a>
-        </li>
-      </ul>
+          
+
+
+    <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image2">
+              {% if project.thumbnail %}
+              <img src="{{ project.thumbnail }}"  style="width:50% ;height:auto;"  alt="Project thumbnail">
+              {% endif %}
+              <span class="card-title">{{ project.title }}</span>
+            </div>
+            <div class="card-content2">
+            <p> Repository Link: {{ project.repository }} <br>
+                Deployment Link: {{ project.deployment }} <br>
+                Description: {{ project.description }}
+            </p>
+            <div class="card-action">
+                <a href="{% url 'project_detail' project.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class=" material-icons">info</i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+                
     {% endfor %}
 
 
