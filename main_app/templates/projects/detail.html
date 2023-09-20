@@ -18,16 +18,17 @@
         </div>
         <div class="col s6">
             <div class="card">
-                <div class="card-content">
-                    <span class="card-title">{{ project.title }}</span>
-                    <span class="subtitle">
+                <div class="card-content project-content">
+                    <div class="project-header">
+                        <span class="card-title">{{ project.title }}</span>
                         by 
-                        <a href="{% url 'user_profile' project.user.id %}">
+                        <a class="project-owner" href="{% url 'user_profile' project.user.id %}">
                             {{ project.user.first_name }} {{ project.user.last_name }}
                         </a>
-                    </span>
+                    </div>
                     <p>Repository Link: {{ project.repository }}</p>
-                    <p>Deployment Link: {{ project.deployment }}</p>
+                    <p>Website Link: {{ project.deployment }}</p>
+                    <hr>
                     <p>{{ project.description }}</p>
                 </div>
                 <div class="card-action">
