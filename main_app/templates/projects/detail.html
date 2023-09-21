@@ -25,16 +25,17 @@
                         <a class="project-owner" href="{% url 'user_profile' project.user.id %}">
                             {{ project.user.first_name }} {{ project.user.last_name }}
                         </a>
+                        <br>
                     </div>
-                    <p>Repository Link: {{ project.repository }}</p>
-                    <p>Website Link: {{ project.deployment }}</p>
+                    <p>Repository:<br><a href="https://{{ project.repository }}">{{ project.repository }}</a></p>
+                    <p>Website:<br><a href="https://{{ project.deployment }}">{{ project.deployment }}</a></p>
                     <hr>
                     <p>{{ project.description }}</p>
                 </div>
                 <div class="card-action">
                     {% if project.user.id == user.id %}
-                        <a href="{% url 'project_delete' project.id %}">Delete</a>
-                        <a href="{% url 'project_edit' project.id %}">Edit</a>
+                        <a href="{% url 'project_delete' project.id %}" style="color: #dcd666";>Delete</a>
+                        <a href="{% url 'project_edit' project.id %}" style="color: #dcd666";>Edit</a>
                     {% endif %}
                 </div>
             </div>
