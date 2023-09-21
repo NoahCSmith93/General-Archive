@@ -21,26 +21,30 @@
 
 
     <div class="row">
+      
         <div class="col s6">
+          
           <div class="card">
-            <div class="card-image2">
-              {% if project.thumbnail %}
-              <img src="{{ project.thumbnail }}"  style="width:50% ;height:auto;"  alt="Project thumbnail">
-              {% endif %}
-              <span class="card-title">{{ project.title }}</span>
-            </div>
-            <div class="card-content">
-            <p> <b> Repository Link: </b> {{ project.repository }} <br>
-               <b> Deployment Link: </b> {{ project.deployment }} <br>
-               <b> Description: </b> {{ project.description }}
-            </p>
             <div class="card-action">
-                <a href="{% url 'project_detail' project.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class=" material-icons left">info</i></a>
+              <a href="{% url 'project_detail' project.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class=" material-icons left">info</i></a>
+              <div class="card-image2">
+                {% if project.thumbnail %}
+                <img src="{{ project.thumbnail }}" style="width:50% ;height:auto;"  alt="Project thumbnail">
+                {% endif %}
+                
+              </div>
+              <div class="card-content">
+                <span class="card-title">{{ project.title }}</span>
+                <p> <b> Repository Link: </b> {{ project.repository }} <br>
+                <b> Deployment Link: </b> {{ project.deployment }} <br>
+                <b> Description: </b> {{ project.description }}
+                </p>
+              </div>
             </div>
-          </div>
         </div>
       </div>
-                
+    
+             
     {% endfor %}
 
 {% endblock %}
