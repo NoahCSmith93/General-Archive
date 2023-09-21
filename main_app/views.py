@@ -112,6 +112,8 @@ def signup(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            user_info = UserInfo(user_id = user.id)
+            user_info.save()
             login(request, user)
             return redirect('home')
         else:
