@@ -6,7 +6,7 @@
       {% if user_info.profile_image %}
                 <img src="{{ user_info.profile_image }}"  style="width:50% ;height:auto;"  alt="Profile image">
             {% else %}
-                <p>Upload a profile image!</p>
+                <p>Upload A Profile Image!</p>
             {% endif %}
             <form action="{% url 'add_profile_photo' user_info.user_id %}" method="post" class="card-panel" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -42,8 +42,6 @@
       
         <div class="col s12 m6">
           
-    <div class="row orange darken-3" id="project">
-        <div class="col s6">
           <div class="card">
             <div class="card-action">
               <a href="{% url 'project_detail' project.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class=" material-icons left">info</i></a>
