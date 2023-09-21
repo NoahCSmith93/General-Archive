@@ -33,8 +33,8 @@
                 </div>
                 <div class="card-action">
                     {% if project.user.id == user.id %}
-                        <a href="{% url 'project_delete' project.id %}">Delete</a>
-                        <a href="{% url 'project_edit' project.id %}">Edit</a>
+                        <a href="{% url 'project_delete' project.id %}" style="color: #dcd666";>Delete</a>
+                        <a href="{% url 'project_edit' project.id %}" style="color: #dcd666";>Edit</a>
                     {% endif %}
                 </div>
             </div>
