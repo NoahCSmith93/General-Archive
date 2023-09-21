@@ -2,7 +2,7 @@ echo "Installing dependencies..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# pip install django
+pip install django
 # pip install dj-database-url
 # pip install django-environ
 # pip install gunicorn
