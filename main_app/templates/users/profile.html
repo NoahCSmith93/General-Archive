@@ -30,13 +30,13 @@
               {% endif %}
               <span class="card-title">{{ project.title }}</span>
             </div>
-            <div class="card-content2">
-            <p> Repository Link: {{ project.repository }} <br>
-                Deployment Link: {{ project.deployment }} <br>
-                Description: {{ project.description }}
+            <div class="card-content">
+            <p> <b> Repository Link: </b> {{ project.repository }} <br>
+               <b> Deployment Link: </b> {{ project.deployment }} <br>
+               <b> Description: </b> {{ project.description }}
             </p>
             <div class="card-action">
-                <a href="{% url 'project_detail' project.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class=" material-icons">info</i></a>
+                <a href="{% url 'project_detail' project.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class=" material-icons left">info</i></a>
             </div>
           </div>
         </div>

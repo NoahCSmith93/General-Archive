@@ -2,6 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    /* background-color: #e3d1b6; */
 }
 
 #id_content {
@@ -18,12 +19,21 @@ main {
 }
 
 .nav-wrapper {
-    background-color: #0713f2;
+    background-color: rgba(163, 161, 110, 0.513);
 }
 
+.home-page .card-panel.white {
+    border: 1px solid #7228c6; 
+    box-shadow: 20px 20px 20px rgba(166, 76, 186, 0.1); 
+    border-radius: 30px; 
+    padding: 30px; 
+    margin-bottom: 20px;
+    margin-top: 150px; 
+    font-size: 16px; 
+    color: #050094; 
+}
 
 .card-panel.white {
-    /* background-color: #f4e9f400;  */
     border: 1px solid #7228c6; 
     box-shadow: 20px 20px 20px rgba(166, 76, 186, 0.1); 
     border-radius: 30px; 
@@ -35,14 +45,11 @@ main {
 
 h1 {
     text-align: center;
-    /* background: #b188ea55; */
 } 
 
 h2 {
     text-align: center;
     font-size: 2rem;
-    /* background: #b188ea55; */
-
 }
 
 ul {
@@ -63,7 +70,7 @@ ul {
 .card {
     width: 85%;
     float: right;
-    border-color: #009dff;
+    border-color: #708591;
     background: linear-gradient(145deg, #b5c6e0, #b3c9eb);
     box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff; 
     overflow: hidden;
@@ -74,16 +81,16 @@ ul {
     text-align: center;
 }
 
-/* .card-action a {
-    color: #30057f;
-} */
+.card-action a:hover {
+    background-color: rgb(222, 168, 19);
+}
 
 .card-content {
     text-align: center;
 }
 
 .card-content .card-title {
-    color: #e99922;
+    color: #dcd666;
     font-weight: 500;
 }
 
@@ -161,7 +168,7 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
 
 .page-footer {
   padding: 0;
-  background-color: #0713f2;
+  background-color: rgba(163, 161, 110, 0.513);
 }
 
 .page-footer div p{
@@ -182,5 +189,17 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
 }
 
 .project-header {
+    text-align: center;
+}
+.card-2 {
+    width: 85%;
+    float: right;
+    border-color: #d0d6d9;
+    background: linear-gradient(145deg, #fdfdfd, #d5d6d7);
+    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff; 
+    overflow: hidden;
+    padding: 30px;
+}
+.card-action2 {
     text-align: center;
 }
