@@ -17,6 +17,8 @@ urlpatterns = [
     path('user/<int:pk>/edit/', views.ProfileUpdate.as_view(), name='profile_edit'),
     # User redirect route - redirects to the proper user ID
     path('user/', views.user_redirect, name='user_redirect'),
+    # url for s3 upload (profile photo)
+    path('user/<int:user_id>/add_photo', views.add_profile_photo, name='add_profile_photo'),
 
 
     #### Projects:

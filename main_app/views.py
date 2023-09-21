@@ -36,11 +36,37 @@ def user_profile(request, user_id):
     user_info = UserInfo.objects.get(user_id=user_id)
     return render(request, "users/profile.html", {
         "user": user,
+        "user_info": user_info,
     })
 
+@login_required
 def user_redirect(request):
     user_id = request.user.id
     return redirect('user_profile', user_id=user_id)
+
+@login_required
+def add_profile_photo(request, user_id):
+    # input field must be named 'photo-file'
+    photo_file = request.FILES.get('photo-file', None)
+    AWS_ACCESS_KEY = os.environ['AWS_ACCESS_KEY']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    if photo_file:
+        s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+        # uuid automatically generates unique filenames
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            # update project's thumbnail to new url
+            user = UserInfo.objects.get(user_id=user_id)
+            user.profile_image = url
+            user.save()
+        except Exception as e:
+            print('An error occured uploading to S3')
+            print(e)
+        # do something else if we didn't
+    return redirect('user_profile', user_id=user.user_id)
 
 
 ## Projects
