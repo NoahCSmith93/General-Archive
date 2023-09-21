@@ -8,5 +8,5 @@ pip install gunicorn
 pip install psycopg2-binary
 pip install whitenoise
 
-python manage.py collectstatic --no-input
-python manage.py migrate
+python3 manage.py collectstatic --no-input
+python3 manage.py migrate
