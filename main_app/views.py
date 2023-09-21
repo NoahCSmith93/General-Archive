@@ -12,7 +12,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Model imports
-from .models import Project, Comment
+from .models import Project, Comment, UserInfo
 from django.contrib.auth.models import User
 # Forms imports
 from .forms import CustomUserCreationForm, CommentForm
@@ -33,6 +33,7 @@ def about(request):
 ## Users
 def user_profile(request, user_id):
     user = User.objects.get(id=user_id)
+    user_info = UserInfo.objects.get(user_id=user_id)
     return render(request, "users/profile.html", {
         "user": user,
     })
