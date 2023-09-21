@@ -3,7 +3,6 @@ blinker==1.4
 boto3==1.28.50
 botocore==1.31.50
 certifi==2023.7.22
-command-not-found==0.3
 cryptography==3.4.8
 dbus-python==1.2.18
 distlib==0.3.7
