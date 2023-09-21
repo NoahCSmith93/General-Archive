@@ -22,7 +22,7 @@
               <i class="large material-icons circle">folder</i>   
               <span class="card-title">{{ user.first_name }} {{ user.last_name }}</span>
               <p>{{ user.email }}</p>
-              <a href="{% url 'profile_edit' user.id %}" class="secondary-content"><i class=" material-icons orange-text text-darken-4 ">account_circle</i></a>
+              <a href="{% url 'profile_edit' user.id %}" class="secondary-content"><i class=" material-icons orange-text text-darken-4 ">edit</i></a>
             </li>
         </ul>
       </div>
@@ -33,6 +33,7 @@
       <p>Github: {{ user_info.github }}</p>
       <p>LinkedIn: {{ user_info.linkedin }}</p>
       <p>Website: {{ user_info.website }}</p>
+      <a href="{% url 'profile_links_edit' user_info.id %}" class="secondary-content"><i class=" material-icons orange-text text-darken-4 ">edit</i></a>
     </div>
   </div>
 

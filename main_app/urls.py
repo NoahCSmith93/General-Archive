@@ -13,8 +13,10 @@ urlpatterns = [
     #### User:
     # The main profile page. This would display the user's name, email, bio, links, profile picture, and other personal details.
     path('user/<int:user_id>/', views.user_profile, name='user_profile'),
-    # To edit the profile details like name, bio, and links.
+    # To edit the user info (name and email).
     path('user/<int:pk>/edit/', views.ProfileUpdate.as_view(), name='profile_edit'),
+    # To edit the profile links.
+    path('editlinks/<int:pk>/', views.ProfileLinksUpdate.as_view(), name='profile_links_edit'),
     # User redirect route - redirects to the proper user ID
     path('user/', views.user_redirect, name='user_redirect'),
     # url for s3 upload (profile photo)

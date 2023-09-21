@@ -227,3 +227,13 @@ class ProfileUpdate(UpdateView, LoginRequiredMixin):
         success_url = reverse("user_profile", kwargs={"user_id": user_id})
         return success_url
     
+class ProfileLinksUpdate(UpdateView, LoginRequiredMixin):
+    model = UserInfo
+    fields = ["github", "linkedin", "website"]
+    success_url = reverse_lazy("user_profile")
+    template_name = 'auth/user_form.html'
+    
+    def get_success_url(self):
+        user_id = self.request.user.id
+        success_url = reverse("user_profile", kwargs={"user_id": user_id})
+        return success_url
