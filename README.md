@@ -18,7 +18,7 @@ Our blog is a platform designed for GA students to showcase, manage, and share t
 - As a GA student, I want to log in to the blog, because I want to manage and update my projects and view comments.
 - AAU, I want to be able to navigate to separate pages for About and All Projects using a navbar because I enjoy easy accessibility. 
 - AAU, when I visit the About page, I want to view some details about the project application and set a description because I want to introduce myself and give context about my work and journey.
-- AAU, when I click the View All My Projects link, I want to see a page listing of all of my projects because I want to see how many projects I have submitted.
+- AAU, when I click the Profile page, I want to see a page listing of all of my projects and personal information because I want to see how many projects I have submitted and update my personal profile.
 - AAU, when I visit the All Projects page, I want to view a list of all projects from the database (index view) that displays each of the attributes of a project.
 - AAU, when I click on a project card on the index page, I want to be taken to a details page where I can see all attributes of the project.
 - AAU, when viewing a projects detail page, I want to click EDIT to update that projects attributes (like deployment link, Github repo, description, thumbnail image), because I may need to update or correct some information.

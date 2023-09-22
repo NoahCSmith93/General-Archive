@@ -204,7 +204,7 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
     width: 85%;
     float:right;
     border-color: #c14646c5;
-    background: linear-gradient(145deg, #eb3204, #ae45088f);
+    background: linear-gradient(145deg, #04eb96a0, #ae45088f);
     box-shadow: 5px 5px 15px #9c3802c5, -5px -5px 15px #ffffff; 
     margin-bottom: 15px;
     overflow: hidden;
