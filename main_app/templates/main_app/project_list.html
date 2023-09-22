@@ -26,8 +26,8 @@
                     <div class="card-2">
                         <div class="card-content">
                             <span class="card-title">{{ project.title }}</span>
-                            <p>Repository Link: {{ project.repository }}</p>
-                            <p>Deployment Link: {{ project.deployment }}</p>
+                            <p>Repository Link: <a href="{{ project.repository }}" style="font-size: 14px; text-decoration: underline;color: black; text-transform: lowercase;">{{ project.repository }}</a></p>
+                            <p>Deployment Link: <a href="{{ project.deployment }}" style="font-size: 14px; text-decoration: underline;color: black; text-transform: lowercase;">{{ project.deployment}}</a></p>
                             <p>Description: {{ project.description }}</p>
                         </div>
                     </div>
