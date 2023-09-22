@@ -1,6 +1,8 @@
 # GA-General Archive - By Team Granular Archivists 📖
 Our blog is a platform designed for GA students to showcase, manage, and share their projects. With user authentication, integrated comments, and personal profiles, each student can provide details about their project, get feedback, and display links to deployment and their GitHub repositories.
 
+# Link 
+https://general-archive.onrender.com/
 
 # Technologies Used
 - Django
@@ -55,3 +57,10 @@ Projects info page will also include comments, stored in their own table.
 
 # ERD
 ![Alt text](https://i.imgur.com/lTHRJE6.png)
+
+# Screenshots
+![image](https://github.com/JordonM/General-Archive/assets/14878928/d1681291-42ce-4e1e-827f-fcefff2e266b)
+
+# Next Steps
+Add more CSS to individual pages
+
