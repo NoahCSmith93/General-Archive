@@ -11,16 +11,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
 </head>
 <body class="main orange lighten-4">
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
         <a href="{%url 'home' %}" class="brand-logo"><img class="responsive-img" style="width:30px;height:auto;" src="{% static '/GALogoTransparent.png' %}"></i>GENERAL ARCHIVE</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul>
           
         </ul>
         <ul class="right">
+        <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'project_list' %}"><i class="material-icons left">view_comfy</i>Recent Projects</a></li>
           {% if user.is_authenticated %}
             <li><a href="{% url 'project_create' %}"><i class="material-icons left">add</i>New Project</a></li>
