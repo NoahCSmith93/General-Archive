@@ -2,7 +2,6 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    /* background-color: #e3d1b6; */
 }
 
 #id_content {
@@ -30,7 +29,6 @@ main {
 }
 
 .card-panel.white {
-    background: linear-gradient(145deg, #fdfdfd, #d5d6d7);
     box-shadow: 20px 20x 20px #babecc, -5px -5px 15px #ffffff; 
     border: 1px solid #28c66f; 
     border-radius: 30px; 
@@ -40,13 +38,18 @@ main {
     color: #40780095; 
 }
 
+#user-form{
+    width: 40%
+}
+
 h1 {
     text-align: center;
+    font-size: 4rem;
 } 
 
 h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 ul {
@@ -60,17 +63,19 @@ ul {
 }
 
 .card {
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     border-color: #009dff;
     background: linear-gradient(145deg, #b5c6e0, #b3c9eb);
     box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff; 
     overflow: hidden;
-    padding: 30px;
+    padding: 15px;
     margin-top: 40px;
 }
 
-.card-action {
+.card, .card-action {
+  padding: 10px 5px !important;
+  padding-bottom: 30px;
     text-align: center;
 }
 
@@ -80,6 +85,7 @@ ul {
 
 .card-content {
     text-align: center;
+    width: 100%
 }
 
 .card-content .card-title {
@@ -109,6 +115,12 @@ ul {
 .add-comment {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.btn-floating.halfway-fab {
+    position: absolute;
+    right: 24px;
+    bottom: 1px;
 }
 
 .add-comment h5 {
@@ -156,7 +168,6 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
     color: black;
 }
 
-
 .page-footer {
   padding: 0;
   background-color: rgba(163, 161, 110, 0.513);
@@ -165,11 +176,13 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
 .page-footer div p{
     text-align: center;
 }
+
 .responsive-img {
     max-width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .row3 {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -186,16 +199,19 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
 .project-header {
     text-align: center;
 }
+
 .card-2 {
     width: 85%;
     float:right;
-    border-color: #d0d6d9;
-    background: linear-gradient(145deg, #fdfdfd, #d5d6d7);
-    box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff; 
+    border-color: #c14646c5;
+    background: linear-gradient(145deg, #eb3204, #ae45088f);
+    box-shadow: 5px 5px 15px #9c3802c5, -5px -5px 15px #ffffff; 
+    margin-bottom: 15px;
     overflow: hidden;
     padding: 30px;
     margin-right: 70px;
 }
+
 .card-action2 {
     text-align: center;
 }
@@ -205,4 +221,21 @@ input[type=text], input[type=email], input[type=password], input[type=descriptio
     flex-direction:column;
     align-items: center;
     justify-content:center;
+}
+
+@media only screen and (max-width: 992px){
+nav .brand-logo {
+   left: 10% !important;
+   font-size: 20px;
+ 
+}
+
+nav ul a{
+    padding: 0 5px;
+    font-size: 13px;
+}
+}
+
+.thumbnail-class {
+    margin-top: 50px;
 }

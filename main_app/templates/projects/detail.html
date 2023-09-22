@@ -2,7 +2,7 @@
 {% block content %}
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s6 thumbnail-class">
             {% if project.thumbnail %}
                 <img src="{{ project.thumbnail }}"  style="width:50% ;height:auto;"  alt="Project thumbnail">
             {% else %}
@@ -27,8 +27,8 @@
                         </a>
                         <br>
                     </div>
-                    <p>Repository:<br><a href="https://{{ project.repository }}">{{ project.repository }}</a></p>
-                    <p>Website:<br><a href="https://{{ project.deployment }}">{{ project.deployment }}</a></p>
+                    <p>Repository:<br><a href="{{ project.repository }}">{{ project.repository }}</a></p>
+                    <p>Website:<br><a href="{{ project.deployment }}">{{ project.deployment }}</a></p>
                     <hr>
                     <p>{{ project.description }}</p>
                 </div>
