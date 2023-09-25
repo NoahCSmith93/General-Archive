@@ -1,5 +1,5 @@
 # GA-General Archive - By Team Granular Archivists 📖
-Our blog is a platform designed for GA students to showcase, manage, and share their projects. With user authentication, integrated comments, and personal profiles, each student can provide details about their project, get feedback, and display links to deployment and their GitHub repositories.
+Our blog is a platform designed for GA students to showcase, manage, and share their projects. With user authentication, integrated comments, and personal profiles, each student can provide details about their project, get feedback, and display links to deployment and their GitHub repositories..
 
 # Link 
 https://general-archive.onrender.com/
